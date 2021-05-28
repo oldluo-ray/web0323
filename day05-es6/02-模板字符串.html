@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap"></div>
+    <script>
+      //   let data = {
+      //     message: {
+      //       title: '今天天气真的很好',
+      //       todo: '打台球',
+      //       time: '时间2020.3.25',
+      //       isLike: false,
+      //     },
+      //   }
+
+      //需求: 根据,动态创建div标签,div里面是多个p标签,然后渲染到页面上]
+      //   let a = 1
+      //   let str = `<div>
+      //                 <h3>${data.message.title}</h3>
+      //                 <p>${data.message.todo}</p>
+      //                 <p>${data.message.time}</p>
+      //                 <p>${data.message.isLike ? '喜欢' : '不喜欢'}</p>
+      //                 <p>${a}</p>
+      //                 <p>${128 + 234}</p>
+      //                 <p>${128 && 234}</p>
+      //               </div>`
+
+      //   document.getElementById('wrap').innerHTML = str
+
+      // 在${}可以写任何的表达式
+      // 什么是表达式:  一段代码执行之后又结果就是表达式
+      //   1/''/true/[]/{}/function(){} 字面量是表达式
+      //    变量和常量是表达式
+      // let a = 1; const b = 2 声明变量和声明常量不是表达式
+      // 运算也是表达式
+      // 三元也是
+      // if/循环都不是表达式
+
+      //   总结:
+      //   表达式: 字面量, 变量, 常量, 运算
+      //   不是表达式: 声明语句, 分支语句, 循环语句
+
+      //   字符串新增的方法
+
+      //字符串是基本类型值，一般的方法只能返回新值，而不能改变字符串
+      let { log } = console
+      //   let message = '      hello    world      '
+      //   log(message)
+
+      //   log(message.trim())
+      //   log(message.trimStart())
+      //   log(message.trimEnd())
+
+      //字符串是基本类型值，一般的方法只能返回新值，而不能改变字符串
+      //   let message = 'hello    world'
+      //   log(message)
+
+      //   log(message.startsWith('hello')) //true
+      //   log(message.endsWith('world')) ////true
+      //   log(message.endsWith('ld')) //true
+      //   log(message.includes('ld')) //true
+      //   log(message.includes('or')) //true
+      //   log(message.includes('你好啊')) //false
+
+      //   let message = '海静，你好s啊'
+      //   log(message.repeat(10))
+
+      let message = '这个是密码'
+      log(message.padStart(8, '#'))
+      log(message.padEnd(8, '#'))
+      log(message.padStart(8, '#*2222'))
+    </script>
+  </body>
+</html>

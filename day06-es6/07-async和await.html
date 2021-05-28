@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 当给一个函数添加上async关键字,这个函数就相当于变成了一个异步函数
+      // 注意:
+      // 1. 如果只是给一个函数声明为异步函数,不再里面写await.那么声明这个异步函数,没有任何意义
+      // 2. 如果要写await.就必须写在async 函数体中,否则语法错误
+      // 3. 当执行一个异步函数的时候,遇到await的时候,就相当于函数执行完毕了.然后继续执行函数调用之后的代码
+      // 4. 当主线程代码执行完毕,才回头去异步函数中,执行紧跟在await 后面的的代码
+      // 5. await 后面的代码执行成功了,才会执行await 下面的代码
+      // 6. await 后面的代码执行不成功,就不会执行await下面的代码了
+      // 7. await 会有一个返回的结果,结果就是await后执行成功的结果
+      async function fn() {
+        console.log(1)
+        // let res = await new Promise((resolve, reject) => {
+        //   setTimeout(() => {
+        //     resolve('123')
+        //     // reject('123')
+        //   }, 1000)
+        // })
+        let res = await false
+        console.log(res)
+        console.log(2)
+        console.log(3)
+      }
+      fn()
+      console.log(4)
+    </script>
+  </body>
+</html>

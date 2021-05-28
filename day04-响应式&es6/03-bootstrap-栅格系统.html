@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css" />
+    <style>
+      .container {
+        /* height: 300px; */
+        /* background-color: ; */
+        border: 1px solid blue;
+      }
+      .row div {
+        border: 1px solid red;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- container 版心 -->
+    <div class="container">
+      <!-- 注意: .row 表示一行,必须被布局容器包裹 
+        .col表示一行中的一格. md表示在可视区为992~1200生效  1 表示在一行中占一格
+        .col-md-1 表示当前div元素在屏幕可视区为992~1200的时候,占一行的一格.否则div独占一行
+      -->
+      <!-- <div class="row">
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div> -->
+
+      <!-- 注意: 
+        下面两行: 
+          1. 所有的尺寸都是一人一半(因为xs是最小的屏幕了)
+
+          2. 下面的一行,写的md. 作用范围可以理解为大于992就有效,但是小于992就各占一行
+      
+      -->
+      <!-- <div class="row">
+        <div class="col-xs-6">.col-xs-6</div>
+        <div class="col-xs-6">.col-xs-6</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+          .col-xs-12 .col-sm-6 .col-md-8
+        </div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-xs-6 col-sm-4">
+          .col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+          .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6
+        </div>
+        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div> -->
+      <!-- 注意: 如果没有这个盒子清浮动,当屏幕小于768的时候,第三个盒子会放在第二个盒子的下面. 清除浮动之后,第三个盒子永远在第二行 -->
+      <!-- <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div> -->
+      <!-- </div> -->
+
+      <!-- <div class="row">
+        <div class="col-xs-9">.col-xs-9</div>
+        <div class="col-xs-4">
+          .col-xs-4<br />Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets
+          wrapped onto a new line as one contiguous unit.
+        </div>
+        <div class="col-xs-6">
+          .col-xs-6<br />Subsequent columns continue along the new line.
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-xs-6 col-sm-3">
+          .col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6
+          .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6
+          .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6
+          .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6
+          .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6
+          .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3
+        </div>
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div> -->
+
+      <!-- Add the extra clearfix for only the required viewport -->
+      <!-- <div class="clearfix visible-xs-block"></div>
+
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div> -->
+      <!-- col-sm-offset-2： 表示编译两个。 由于之前可能已经偏移了两格，所以为了预防bug.所以写  col-md-offset-0 把偏移的两格抵消掉-->
+      <!-- <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">
+          .col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6">
+          .col-sm-6 .col-md-5 .col-lg-6
+        </div>
+        <div class="col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0">
+          .col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0
+        </div>
+      </div> -->
+      <!-- row-no-gutters 两翼留白 -->
+      <!-- <div class="row row-no-gutters">
+        <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div>
+      <div class="row row-no-gutters">
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div>
+      <div class="row row-no-gutters">
+        <div class="col-xs-6">.col-xs-6</div>
+        <div class="col-xs-6">.col-xs-6</div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+        <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+      </div> -->
+      <!-- <div class="row">
+        <div class="col-xs-6 col-sm-4">col-xs-6 col-sm-4</div>
+        <div class="col-xs-6 col-sm-4">col-xs-6 col-sm-4</div>
+        <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0">
+          col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <div class="col-sm-9">
+          Level 1: .col-sm-9
+          <div class="row">
+            <div class="col-xs-8 col-sm-6">Level 2: .col-xs-8 .col-sm-6</div>
+            <div class="col-xs-4 col-sm-6">Level 2: .col-xs-4 .col-sm-6</div>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+        <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+      </div>
+    </div>
+  </body>
+</html>

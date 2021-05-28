@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+      }
+
+      th,
+      td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+      }
+
+      th {
+        background-color: #09c;
+        font: bold 16px '微软雅黑';
+        color: #fff;
+      }
+
+      td {
+        font: 14px '微软雅黑';
+      }
+
+      tbody tr {
+        background-color: #f0f0f0;
+      }
+
+      tbody tr:hover {
+        cursor: pointer;
+        background-color: #fafafa;
+      }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+        // 模拟从后台拿到的数据
+        var datas = [
+          {
+            name: '海静',
+            url: 'http://www.atguigu.com',
+            type: '光头lsp',
+          },
+          {
+            name: '沛华',
+            url: 'http://www.atguigu.com.com',
+            type: '渣男锡纸烫',
+          },
+          {
+            name: '猫哥',
+            url: 'http://web.atguigu.cn',
+            type: '嘿嘿嘿',
+          },
+        ]
+
+        // 1. 获取元素 j_btnGetData ,注册点击事件
+        $('#j_btnGetData').click(function () {
+          // 2. 在事件处理函数中,根据数据,动态的拼接字符串'<tr><td>xxx</td></tr>'
+          // 拼接字符串,数组中有几个对象,就应该有几个tr. 对象中有几个键值对,就应该在tr中有几个td
+          var str = '' //注意: 拼接字符串的时候,一定要记得初始化一个空字符串.否则会多拼接一个undefined
+          datas.forEach(function (item, index) {
+            str += '<tr>'
+
+            // 遍历对象
+            for (var key in item) {
+              str += '<td>' + item[key] + '</td>'
+            }
+
+            str += '</tr>'
+          })
+          console.log(str)
+          // 3. 利用jquery的方法,添加到页面上
+          $('#j_tbData').append(str)
+        })
+      })
+    </script>
+  </head>
+
+  <body>
+    <input type="button" value="获取数据" id="j_btnGetData" />
+    <table>
+      <thead>
+        <tr>
+          <th>标题</th>
+          <th>地址</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody id="j_tbData"></tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <script>
+      let btn = document.getElementById('btn')
+
+      //   btn.onclick = function () {
+      //     // 回调函数中嵌套回调函数,这就是回调地狱
+      //     setTimeout(() => {
+      //       console.log('a数据请求回来了~')
+      //       setTimeout(() => {
+      //         console.log('b数据请求回来了~')
+      //         setTimeout(() => {
+      //           console.log('c数据请求回来了~')
+      //         }, 1000)
+      //       }, 1000)
+      //     }, 1000)
+      //   }
+
+      btn.onclick = function () {
+        const promise = new Promise((resolve, reject) => {
+          console.log('promise的同步回调执行了')
+          // 执行异步代码
+          setTimeout(() => {
+            // console.log('异步执行成功了')
+            // resolve() // 异步成功之后,调用resolve,可以将promise实例的状态由未定义改成成功
+
+            console.log('异步执行失败了')
+            reject() // 异步成功之后,调用resolve,可以将promise实例的状态由未定义改成成功
+            console.log(promise)
+          }, 5000)
+        })
+
+        console.log('同步代码')
+        console.log(promise)
+      }
+
+      // 定时器的回调函数是一个异步回调(原因: 因为这个回调函数会被添加到队列中, 当计时时间到了之后,会添加到队列中)
+      //   setTimeout(() => {}, 1000)
+      //new Promise的回调是同步回调.(因为不会放到队列中执行)
+      //   new Promise(() => {})
+      // promise同步回调原理:
+      //   function Promise(cb) {
+      //     cb()
+      //   }
+
+      //   new Promise(() => {})
+    </script>
+  </body>
+</html>

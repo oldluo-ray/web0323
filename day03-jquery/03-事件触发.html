@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <button id="btn1">其他按钮</button>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      //   // js原生的事件触发:
+      //   var btn = document.getElementById('btn')
+      //   var btn1 = document.getElementById('btn1')
+      //   btn.onclick = function () {
+      //     console.log('按钮的点击事件触发了')
+      //   }
+      //   btn1.onclick = function () {
+      //     // 点击btn1.让btn的点击事件触发
+      //     // 事件触发: 不是用户认为操作鼠标或键盘触发.而是通过一行代码的执行触发的
+      //     // btn.onclick()
+      //     btn.click()
+      //   }
+
+      // jquery中的事件触发:
+
+      $('body').on('click', function () {
+        console.log('body的事件触发了')
+      })
+      $('#btn').on('click', function () {
+        console.log('btn的事件触发了')
+      })
+
+      $('#btn1').on('click', function () {
+        //触发btn的点击事件
+        // $('#btn').trigger('click')
+        $('#btn').triggerHandler('click') //不冒泡
+      })
+    </script>
+  </body>
+</html>

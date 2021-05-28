@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let s = Symbol('a')
+      //   let s1 = Symbol('b')
+      //   console.log(s)
+      //   console.log(s1)
+      //   console.log(typeof s)
+      //   console.log(s === s1)
+
+      let obj = {
+        name: 'lily',
+        todo() {
+          console.log('eat')
+        },
+      }
+      //修改
+      //   obj.name = 'xiaowang'
+      //   obj.todo = () => {
+      //     console.log('someThing~')
+      //   }
+      //   console.log(obj.name)
+      //   obj.todo()
+
+      //   let name = Symbol('name')
+      //   let todo = Symbol('todo')
+
+      //   obj[name] = '老王'
+
+      //   console.log(obj)
+      //   console.log(obj.name)
+      //   console.log(obj[name])
+      //   new Symbol()
+      //   console.log(String(Symbol('a'))) //Symbol(a)
+      //   console.log(Boolean(Symbol())) //true
+      // //   console.log(Symbol() + 1) //Cannot convert a Symbol value to a number
+      //   console.log(Number(Symbol())) //Cannot convert a Symbol value to a number
+
+      //   {
+      //     let obj = {
+      //       name: 'lily', //原有对象拥有name属性
+      //       age: 18,
+      //     }
+      //     let test = Symbol()
+      //     obj[test] = '再见' //如果直接设置，则再也获取不到这个属性了
+      //     console.log(obj)
+
+      //     console.log(obj[test]) //undefined
+      //   }
+
+      {
+        let obj = {
+          name: 'lily', //原有对象拥有name属性
+          age: 18,
+        }
+        let name = Symbol()
+        obj[name] = '再见' //如果直接设置，则再也获取不到这个属性了
+
+        for (let i in obj) {
+          console.log(i)
+        }
+
+        //可以使用 Object.getOwnPropertySymbols方法来拿
+        console.log(Object.getOwnPropertySymbols(obj)) //[Symbol()]
+      }
+    </script>
+  </body>
+</html>

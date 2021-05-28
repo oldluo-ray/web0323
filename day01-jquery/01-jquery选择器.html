@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div id="box"></div>
+    <p>123</p>
+    <p>abc</p>
+    <div>456</div>
+    <h5>789</h5> -->
+
+    <ul>
+      <li id="first">1</li>
+      <li>2</li>
+      <li class="test">3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+    <!-- <h1>123</h1>
+    <h5>345</h5>
+    <div class="box" id="box">
+      <span class="myClass"></span>
+    </div>  -->
+
+    <!-- <input type="text" />
+    <input type="password" />
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <input type="checkbox" checked />
+    <input type="radio" checked />
+    <select name="" id="">
+      <option value=""></option>
+      <option value="" selected></option>
+      <option value=""></option>
+    </select>
+    <input type="submit" />
+    <button id="btn">按钮</button> -->
+
+    <form action="">
+      <input type="text" />
+      <!-- <input type="submit" /> -->
+      <button>按钮</button>
+    </form>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      // 层次选择器:
+      //   +必须是紧挨着自己的下一个兄弟
+      //   ~是自己后面所有符合要求的兄弟
+      //   console.log($('#box+div'))
+      //   console.log($('#box~h5'))
+
+      // 过滤选择器
+      //   console.log($('li:eq(3)'))
+      //   console.log($('li:gt(3)'))
+      //   console.log($('li:lt(3)'))
+      //   console.log($(':header'))
+      //   console.log($('h1:contains(123)'))
+      //   console.log($('div:empty'))
+      //   console.log($('div:has(.myClass)'))
+      //   console.log($('ul:parent'))
+      // 属性选择器
+      //   console.log($('div[class][id=box]'))
+      //表单选择器:
+      //   console.log($(':checked'))
+      //   console.log($(':selected'))
+      //   console.log($(':input'))
+      //   console.log($(':submit'))
+
+      // 筛选方法:不是选择器了,是jquery对象的方法.用来筛选元素
+      //   console.log($('ul li'))
+      //   console.log($('ul').children('.test'))
+      //   console.log($('#first').siblings('.test'))
+      //   console.log($('#first').parent())
+      //   console.log($('li').eq(1))
+    //   console.log($('#first').index())
+    </script>
+  </body>
+</html>

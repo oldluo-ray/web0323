@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .wrap {
+        width: 330px;
+        height: 30px;
+        margin: 100px auto 0;
+        padding-left: 10px;
+        background-image: url(imgs/bg.jpg);
+      }
+
+      .wrap li {
+        background-image: url(imgs/libg.jpg);
+      }
+
+      .wrap > ul > li {
+        float: left;
+        margin-right: 10px;
+        position: relative;
+      }
+
+      .wrap a {
+        display: block;
+        height: 30px;
+        width: 100px;
+        text-decoration: none;
+        color: #000;
+        line-height: 30px;
+        text-align: center;
+      }
+
+      .wrap li ul {
+        position: absolute;
+        top: 30px;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="btn">按钮</button>
+    <button id="btn1">stop</button>
+    <!-- <div id="box"></div> -->
+    <div class="wrap">
+      <ul>
+        <li>
+          <a href="javascript:void(0);">一级菜单1</a>
+          <ul class="ul">
+            <li>
+              <a href="javascript:void(0);">二级菜单11</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">二级菜单12</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">二级菜单13</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);">一级菜单2</a>
+          <ul>
+            <li>
+              <a href="javascript:void(0);">二级菜单21</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">二级菜单22</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">二级菜单23</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:void(0);">一级菜单3</a>
+          <ul>
+            <li>
+              <a href="javascript:void(0);">二级菜单31</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">二级菜单32</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">二级菜单33</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+      $('.wrap>ul>li').mouseenter(function () {
+        $(this).find('ul').stop(true).slideDown()
+      })
+      $('.wrap>ul>li').mouseleave(function () {
+        $(this).find('ul').stop(true).slideUp()
+      })
+      // $('#btn').click(function () {
+      //   $('#box').hide(3000).slideDown(3000).fadeOut(3000)
+      // })
+      // $('#btn1').click(function () {
+      //   // 第一个参数: 是否清空动画队列
+      //   // 第二个参数: 是否调到当前动画的最终效果
+      //   // $('#box').stop(false, false)
+      //   // $('#box').stop(true, false)
+      //   // $('#box').stop(true, true)
+      //   // $('#box').stop(false, true)
+      //   // stop方法,可以让当前正在执行的动画停止,然后通过两个参数,决定动画队列是否被清空, 当前动画是否跳到最终效果
+      // })
+    </script>
+  </body>
+</html>

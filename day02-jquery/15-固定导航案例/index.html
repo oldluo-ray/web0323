@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        vertical-align: top;
+      }
+
+      .main {
+        margin: 0 auto;
+        width: 1000px;
+        padding-top: 10px;
+      }
+
+      .fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top" id="topPart">
+      <img src="images/top.png" alt="" />
+    </div>
+    <div class="nav" id="navBar">
+      <img src="images/nav.png" alt="" />
+    </div>
+    <div class="main" id="mainPart">
+      <img src="images/main.png" alt="" />
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      //  需求: 当页面滚动出去的距离是top的高度,则让nav固定定位.如果滚动出去的距离小于top的高度,就让nav取消固定定位
+
+      // 1. 监听页面滚动出去的距离
+      $(window).scroll(function () {
+        // 2. 在事件处理函数中.获取当前页面已经滚动出去多少
+        var height = $(window).scrollTop()
+        // 3. 判断是否大于等于top的高度
+        // 获取top的高度
+        var topHeigt = $('.top').height()
+        // 4. 根据判断的结果,给nav添加/删除固定定位
+        if (height >= topHeigt) {
+          //加固定
+          $('.nav').addClass('fixed')
+          $('.main').css('margin-top', $('.nav').height())
+        } else {
+          //删固定
+          $('.nav').removeClass('fixed')
+          $('.main').css('margin-top', 0)
+        }
+      })
+    </script>
+  </body>
+</html>

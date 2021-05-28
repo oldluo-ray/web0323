@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 直接返回一个成功的promise
+      //   console.log(Promise.resolve('123'))
+      // 直接返回一个失败的promise
+      //   console.log(Promise.reject('345'))
+
+      let promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('123')
+        }, 1000)
+      })
+      let promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject('345')
+        }, 3000)
+      })
+
+      // all 返回一个新的promise, 当all里面所有的promise都成功,返回promise才会成功
+      //   let promise = Promise.all([promise1, promise2])
+      // allSettled 返回一个新的promise. 当多个promies都完成了,返回的promise就成功了
+      let promise = Promise.allSettled([promise1, promise2])
+      //   console.log(promise)
+      promise.then((value) => {
+        console.log('promise1和promise2的状态都完成了', value)
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 成员: 属性和方法统称为成员
+      //   function Person(name, age) {
+      //     this.name = name // 实例的属性
+      //     this.age = age //实例的属性
+      //     //实例的方法
+      //     this.say = function () {}
+      //   }
+
+      //   // 直接添加给构造函数的属性和方法,就叫做静态属性/静态方法/静态成员
+      //   Person.test = 1
+      //   Person.fn = function () {}
+
+      //   // 注意: 实例无法获取静态成员
+      //   // 实例只能拿到自己身上或原型链上的属性或方法
+
+      //   var p = new Person('zs', 18)
+
+      console.log('====================================================')
+
+      //   var obj = {}
+      //   var testObj = { name: 'zs', age: 18 }
+      //   // create第一个参数: 表示创建出来的新的对象的原型,可以写null
+      //   // create第二个参数: 表示对于新对象中属性的描述
+      //   var obj = Object.create(testObj, {
+      //     name: {
+      //       value: 'ls', // 对于name的值的描述
+      //       writable: true, // name属性是否可写
+      //       enumerable: true, // name属性是否可以被遍历
+      //       configurable: true, //name属性是否可以被删除
+      //     },
+      //     age: {
+      //       value: 18,
+      //     },
+      //   })
+      //   //   obj.name = 'xs'
+      //   //   obj.age = 38
+      //   //   console.log(obj)
+      //   //   for (var key in obj) {
+      //   //     console.log(key)
+      //   //   }
+      //   delete obj.name
+      //   delete obj.age
+      //   console.log(obj)
+
+      //   console.log('===============================================')
+
+      //   var obj = {
+      //     name: 'zs',
+      //   }
+
+      //   Object.defineProperty(obj, 'gender', {
+      //     value: '男',
+      //   })
+      //   Object.defineProperty(obj, 'name', {
+      //     value: 'ls',
+      //   })
+
+      //   console.log(obj)
+      //   for (var key in obj) {
+      //     console.log(key)
+      //   }
+      //   console.log('===============================================')
+
+      //   var obj = {
+      //     name: 'zs',
+      //   }
+
+      //   Object.defineProperties(obj, {
+      //     name: {
+      //       value: 'ls',
+      //     },
+      //     gender: {
+      //       value: '女',
+      //     },
+      //   })
+
+      //   console.log(obj)
+      //   for (var key in obj) {
+      //     console.log(key)
+      //   }
+
+      console.log('===============================================')
+
+      var obj = {
+        name: 'zs',
+
+        // fullName: '尼古拉斯-zs',
+        // get fullName() {
+        //   return '不告诉你'
+        // },
+
+        set fullName(data) {
+          this.name = 'zs'
+        },
+      }
+
+      console.log(obj.name)
+      console.log(obj.fullName)
+      obj.fullName = 'ls'
+      console.log(obj)
+    </script>
+  </body>
+</html>

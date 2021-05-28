@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let arr1 = [1, 2, 3, 4]
+      // 需求: 将数组中的每一个元素取出来,并且赋值给变量a,b,c,d
+      //   let a = arr1[0]
+      //   let b = arr1[1]
+      //   let c = arr1[2]
+      //   let d = arr1[3]
+
+      // 数组的解构赋值:
+      //   let [a, b, c, d] = arr1
+
+      //   console.log(a, b, c, d)
+
+      //   let [c, d] = [1]
+      //   console.log(d) //undefined
+
+      //   let [a] = [10, 20]
+      //   console.log(a)
+
+      //   let [e = 2, f = 20] = []
+      //   console.log(e, f) //10 20
+      //   let [g, h, ...rest] = [10, 11, 23, 22, 12, 3, 4, 5, 3]
+      //   console.log(g, h, rest) //10，11，[23, 22, 12, 3, 4, 5, 3]
+      //   let [a, [b, c, d], e] = [1, [2, 3, 4], 5]
+      //   console.log(a, b, c, d, e)
+      //   let a = 1
+      //   let b = 2
+      //   ;[a, b] = [b, a]
+      //   console.log(a, b)
+
+      //   let [foo = hoo, hoo = 2] = []
+      //   console.log(foo, hoo)
+
+      //  对象的解构赋值:
+      // 注意: 与数组的解构赋值不同的是, 数组结构赋值时,变量名可以随意命名, 他们是通过下标一一对应.但是对象解构时的变量名要与对象中的属性一致.如果不一致.那么无法解构成功. 如果一个变量名,在对象中不存在,不会报错,但是这个变量中是undefined
+      //   let { foo, hoo, xxx } = { foo: 'hello', hoo: 'word' } //key和value一样可以简写
+      //   console.log(foo, hoo, xxx)
+
+      //   let a = 1,
+      //     b = 2
+      //   // 注意:在es6中下面的这种形式,可以简写成{ a, b }这样
+      //   console.log({ a: a, b: b })
+      //   console.log({ a, b })
+
+      //找到foo对应的关系，然后把1赋值给c
+      //   let obj = { foo: 'a', hoo: 'b' }
+      //   let { foo, hoo } = obj
+      //   console.log(foo, hoo)
+      //   let obj1 = { foo: 1, hoo: 2 }
+      //   // 结构时,给变量重命名.为了避免变量名冲突. 重命名之后,有效的变量名就是:后面的
+      //   let { foo: newfoo, hoo: newhoo } = obj1
+      //   //   console.log(foo, hoo) //报错
+      //   console.log(newfoo, newhoo)
+
+      //   let { x, y = 10 } = { x: 1 }
+      //   console.log(x, y)
+
+      //   let obj = { a: 1, b: [2, 3, 4] }
+      //   let {
+      //     a,
+      //     b: [b1, b2, b3],
+      //   } = obj
+      //   console.log(a, b1, b2, b3)
+
+      //练习1：如果想要获取数组的第一个和最后一个值怎么办(使用解构赋值)
+      //   let arr = [1, 2, 3, 4, 5, 6, 7]
+      //   // 由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构
+      //   let { 0: start, [arr.length - 1]: last } = arr
+
+      //   console.log(start, last)
+
+      //   console.log(console)
+      //   let { log } = console
+      //   console.log(log === console.log)
+
+      //1.接收函数的多个返回值
+      //   function fn() {
+      //     return [1, 2, 3, 4]
+      //   }
+      //   let [a, b, c, d] = fn()
+      //   console.log(a, b, c, d)
+
+      //   function fn() {
+      //     return { foo: 'hello', hoo: 'word' }
+      //   }
+      //   let { foo } = fn()
+      //   console.log(foo)
+
+      //   function fn1([x, y, z]) {
+      //     console.log(x, y, z)
+      //   }
+      //   fn1([1, 2, 3])
+
+      //   function fn2({ x, y, z }) {
+      //     console.log(x, y, z)
+      //   }
+      //   fn2({ y: 2, x: 1, z: 3 })
+
+      let json = {
+        name: 'lily',
+        sex: 'nv',
+        age: 18,
+      }
+      let { name, age, sex } = json
+      console.log(name, age, sex)
+    </script>
+  </body>
+</html>

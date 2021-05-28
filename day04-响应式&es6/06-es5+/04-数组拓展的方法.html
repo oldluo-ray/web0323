@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 需求: 有一个数组,数组中有一些学生信息.需要知道有多少个学生是大于20岁的
+
+      var arr = [
+        {
+          name: 'zs',
+          age: 18,
+        },
+        {
+          name: 'ls',
+          age: 22,
+        },
+        {
+          name: 'ww',
+          age: 30,
+        },
+        {
+          name: 'zl',
+          age: 16,
+        },
+        {
+          name: 'tq',
+          age: 99,
+        },
+        {
+          name: 'wb',
+          age: 99999,
+        },
+      ]
+      //   var count = 0
+      //   arr.forEach(function (item) {
+      //     if (item.age > 20) {
+      //       count++
+      //     }
+      //   })
+
+      // reduce函数返回的是,preValue最终的计算结果
+      //   var result = arr.reduce(function (preValue, item) {
+      //     // console.log(preValue, item)
+      //     if (item.age > 20) {
+      //       return ++preValue
+      //     } else {
+      //       return preValue
+      //     }
+      //   }, 0)
+
+      //   console.log(result)
+
+      //需求2: 根据一个数组,得到一个对象. 得到的新的对象键,要求是数组中name属性的值
+
+      let result = arr.reduce(function (preValue, item) {
+        preValue[item.name] = item.age
+        return preValue
+      }, {})
+      console.log(result)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //定义的时候和普通函数定义不一样，使用yeild关键字在内部定义各种状态
+      //   function* gen() {
+      //     console.log(1)
+      //     yield '状态1'
+      //     console.log(2)
+      //     yield '状态2'
+      //     console.log(3)
+      //     yield '状态3'
+      //     console.log(4)
+      //     yield '状态4'
+      //   }
+
+      //   // 调用了generator后返回的是迭代器对象
+      //   // 在generator函数中，遇到yield就会停止
+      //   let it = gen()
+      //   console.log(it)
+      //   console.log(it.next())
+      //   console.log(it.next())
+    </script>
+    <button id="btn">点击抽奖</button>
+    <script>
+      //   function* gen(count) {
+      //     //..
+      //     yield draw(5)
+      //     //..
+      //     yield draw(4)
+      //     //..
+      //     yield draw(3)
+      //     //..
+      //     yield draw(2)
+      //     //..
+      //     yield draw(1)
+
+      //     return ''
+      //   }
+      //   function draw(count) {
+      //     alert('还剩' + (count - 1) + '次机会')
+      //   }
+      //   let oBtn = document.getElementById('btn')
+      //   let start = gen()
+      //   oBtn.onclick = function () {
+      //     start.next()
+      //   }
+    </script>
+    <script>
+      /*
+          需求：请求a数据，再请求b数据，请求c数据
+        */
+
+      //   async function fn() {
+      //     //a任务
+      //     let res = await new Promise((resolve, reject) => {
+      //       setTimeout(() => {
+      //         resolve('a')
+      //       }, 1000)
+      //     })
+      //     console.log(res + '完成了')
+      //     //b任务
+      //     res = await new Promise((resolve, reject) => {
+      //       setTimeout(() => {
+      //         resolve('b')
+      //       }, 1000)
+      //     })
+      //     console.log(res + '完成了')
+      //     //c任务
+      //     res = await new Promise((resolve, reject) => {
+      //       setTimeout(() => {
+      //         resolve('c')
+      //       }, 1000)
+      //     })
+      //     console.log(res + '完成了')
+      //   }
+
+      //   fn()
+
+      function* fn() {
+        yield setTimeout(() => {
+          console.log('a数据成功了')
+          iteratorObj.next() // 执行下一段代码
+        }, 1000)
+
+        yield setTimeout(() => {
+          console.log('b数据成功了')
+          iteratorObj.next() // 执行下一段代码
+        }, 2000)
+
+        yield setTimeout(() => {
+          console.log('c数据成功了')
+          iteratorObj.next() // 执行下一段代码
+        }, 3000)
+
+        console.log('全部数据请求回来~')
+      }
+
+      const iteratorObj = fn()
+      iteratorObj.next()
+    </script>
+  </body>
+</html>

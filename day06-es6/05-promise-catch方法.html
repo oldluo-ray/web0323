@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <script>
+      let btn = document.getElementById('btn')
+
+      btn.onclick = function () {
+        // const promise1 = new Promise((resolve, reject) => {
+        //   // resolve('promise1的值')
+        //   setTimeout(() => {
+        //     reject('promise1的值')
+        //   }, 1000)
+        // })
+        // // catch方法只在promise失败的生效.里面只有一个回调
+        // // catch也返回一个promise. 这个新的promise的状态由catch中回调函数的结果决定
+        // let promise2 = promise1.catch((value) => {
+        //   console.log('catch的第一个回调', value)
+        //   return new Promise((resolve, reject) => {
+        //     reject('promise2失败了')
+        //   })
+        // })
+        // console.log(2, promise2)
+
+        const promise1 = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('promise1成功')
+            reject('promise1失败')
+          }, 1000)
+        })
+
+        // 注意: 如果像下面这种写法去写. 那么promise1成功则调用then的回调. 如果promise失败,就调用catch的回调
+        // 注意: 如果使用了catch,都是在then后面直接跟一个catch.并且then的第二个回调就不声明了.
+        promise1
+          .then((value) => {
+            console.log('promise1成功了')
+          })
+          .catch((err) => {
+            console.log('catch', 'promise1失败')
+          })
+          .finally(() => {
+            console.log('不管promise成功还是失败都会调用')
+          })
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* display: none; */
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">点击按钮-展示动画效果</button>
+    <div id="box"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $('#btn').click(function () {
+        $('#box').animate({
+          // 注意: 虽然margin也可以让盒子移动,但是没有脱标,所以可能会影响其他盒子布局
+          left: 400,
+          top: 200,
+          width: 200,
+          height: 50,
+          backgroundColor: 'green',
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script src="other.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      // $ ==> jQuery
+
+      //   console.log($ === jQuery)
+      // 多库共存:
+      // 情况1: 先引入jquery,后移入其他库. 其他库的$覆盖了jquery的$
+      // 解决办法: jquery不用$,而使用jQuery即可
+      //   console.log($())
+      //   console.log(jQuery('div'))
+
+      // 情况2:先引入其他库,再引入jquery. jquery的$覆盖了其他库的$
+      // 解决办法: 让jquery释放对于$的控制权
+      $.noConflict() // 释放的代码
+      console.log($())
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      .parentWrap {
+        width: 200px;
+        text-align: center;
+      }
+
+      .menuGroup {
+        border: 1px solid #999;
+        background-color: #e0ecff;
+      }
+
+      .groupTitle {
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+      }
+
+      .menuGroup > div {
+        height: 200px;
+        background-color: #fff;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="parentWrap">
+      <li class="menuGroup">
+        <span class="groupTitle">标题1</span>
+        <div>我是弹出来的div1</div>
+      </li>
+      <li class="menuGroup">
+        <span class="groupTitle">标题2</span>
+        <div>我是弹出来的div2</div>
+      </li>
+      <li class="menuGroup">
+        <span class="groupTitle">标题3</span>
+        <div>我是弹出来的div3</div>
+      </li>
+      <li class="menuGroup">
+        <span class="groupTitle">标题4</span>
+        <div>我是弹出来的div4</div>
+      </li>
+    </ul>
+  </body>
+
+  <!-- 1. 引包 -->
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    //  1. 获取到所有的li,然后注册点击事件
+    $('li').click(function () {
+      // 2. 在事件处理函数中,找到当前点击的li.然后找到里面的div.让div展示
+      $(this)
+        .children('div')
+        .css('display', 'block')
+        .parent()
+        .siblings()
+        .children('div')
+        .css('display', 'none')
+      // 3.让其他的li里面的div隐藏
+    })
+  </script>
+</html>

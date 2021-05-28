@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      .wrap {
+        width: 300px;
+        margin: 100px auto 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+      }
+
+      th,
+      td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+      }
+
+      th {
+        background-color: #09c;
+        font: bold 16px '微软雅黑';
+        color: #fff;
+      }
+
+      td {
+        font: 14px '微软雅黑';
+      }
+
+      tbody tr {
+        background-color: #f0f0f0;
+      }
+
+      tbody tr:hover {
+        cursor: pointer;
+        background-color: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <input type="checkbox" id="j_cbAll" />
+            </th>
+            <th>课程名称</th>
+            <th>所属学院</th>
+          </tr>
+        </thead>
+        <tbody id="j_tb">
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>JavaScript</td>
+            <td>前端学院</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>css</td>
+            <td>前端学院</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>html</td>
+            <td>前端学院</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>jQuery</td>
+            <td>前端学院</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      // 需求1: 点击全选,如果全选选中,其他都选中.否则,其他都不选中
+
+      // 1. 获取j_cbAll.然后注册点击事件
+      $('#j_cbAll').click(function () {
+        // 2. 在事件处理函数中.获取全选的状态
+        // 3. 根据状态,给j_tb下面的每一个复选框的赋值
+        $('#j_tb input').prop('checked', $(this).prop('checked'))
+      })
+
+      // 需求2: 点击tbody里面的复选框,如果都选中了,全选也选中.否则,全选不选中
+      // 1. 获取j_tb下面的所有的复选框,并且注册点击事件
+      $('#j_tb input').click(function () {
+        // 使用count可以知道选中多少条, 使用$('#j_tb input').length可以知道总共有多少条
+
+        // 3. 如果是,就给全选选中.否则,全选不选中
+        $('#j_cbAll').prop(
+          'checked',
+          $('#j_tb input:checked').length === $('#j_tb input').length
+        )
+      })
+    </script>
+  </body>
+</html>

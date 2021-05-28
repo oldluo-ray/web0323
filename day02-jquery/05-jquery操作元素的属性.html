@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box"></div>
+    <input id="check" type="checkbox" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      // js原生操作元素属性的方式?
+      //   getAttribute/setAttribute  可以操作所有的属性
+      //   data-xxx  dataset
+
+      // jquery中操作属性的方法
+      //   attr
+
+      //   $('#box').attr('class', 'box')
+      //   $('#box').attr({
+      //     index: 1,
+      //     class: 'one',
+      //   })
+
+      //   $('#box').removeAttr('class')
+      //   $('#box').removeAttr('index')
+      //   //   $('#box').removeAttr('id')
+
+      //   console.log($('#box').attr('id'))
+
+      console.log($('#check'))
+      //   $('#check').prop('checked', true)
+      //   $('#check').prop({
+      //     checked: true,
+      //   })
+      //   $('#check').prop('index', 1)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+    <script>
+      function getData() {
+        return new Promise((resolve, reject) => {
+          // 利用定时器,模拟ajax请求. 如果定时器的回调执行了,就表示成功了,或失败了
+          setTimeout(() => {
+            // 成功了就将数据,传入到resolve里面
+            // resolve([{ name: 'zs', age: 18 }])
+            reject('网络异常')
+          }, 2000)
+        })
+      }
+      // 需求: 点击按钮,给服务器发送请求,请求成功,将数据渲染到页面上.请求失败,就提示用户网络异常
+      let btn = document.getElementById('btn')
+      let box = document.getElementById('box')
+      btn.onclick = async function () {
+        try {
+          // trycatch可以捕获失败的promise
+          // 如果promise成功,则代码继续往下执行
+          // 如果promise失败,代码就直接跳到catch中执行
+          let res = await getData()
+
+          // console.log(res);
+          // await下面的代码一定会在getData中promise成功之后才会执行.
+          // 这里就可以拿到成功之后的数据,有了数据,就可以渲染
+          let str = `<h1>${res[0].name}</h1><h3>${res[0].age}</h3>`
+          box.innerHTML = str
+        } catch (err) {
+          // console.log(err)
+          box.innerHTML = `<h1>${err}</h1>`
+        }
+      }
+    </script>
+  </body>
+</html>

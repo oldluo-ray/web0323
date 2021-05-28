@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <span>123</span>
+      <p>456</p>
+    </div>
+    <button id="btn">按钮</button>
+    <button id="btn1">off</button>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      // $('#btn').on('click mouseenter', function () {
+      //   console.log('触发了')
+      // })
+
+      $('div').on('click', function () {
+        console.log('div自己的click触发了')
+      })
+
+      $('div').on('click', 'span', function () {
+        console.log('事件委托触发了')
+      })
+
+      $('#btn1').on('click', function () {
+        // $('#btn').off() // 移除所有事件
+        // $('#btn').off('click') // 移除所有事件
+        $('div').off('click', '**') // 移除委托的事件,div自己的还是可以触发的
+      })
+    </script>
+  </body>
+</html>

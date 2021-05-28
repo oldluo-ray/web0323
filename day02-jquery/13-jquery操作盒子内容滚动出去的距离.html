@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #far {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        overflow: auto;
+      }
+
+      #son {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <div id="far">
+      <div id="son">son</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      // 给far注册,监听元素滚动条移动的事件
+      $('#far').scroll(function () {
+        // 获取
+        console.log('left', $('#far').scrollLeft())
+        console.log('top', $('#far').scrollTop())
+      })
+
+      //   设置
+      $('#btn').click(function () {
+        $('#far').scrollLeft(50)
+        $('#far').scrollTop(100)
+      })
+    </script>
+  </body>
+</html>

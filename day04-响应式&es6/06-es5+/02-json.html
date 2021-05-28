@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var obj = {
+      //   name: 'zs',
+      //   age: 18,
+      // }
+
+      // // 严格的json格式:
+      // var json = {
+      //     "name": "zs",
+      //     "age": 18
+      // }
+
+      // 1. 将一个js对象转成json格式的字符串
+      var arr = [{ name: 'zs' }, { name: 'ls' }]
+      var jsonStr = JSON.stringify(arr)
+      console.log(jsonStr)
+
+      // 2. 将一个json格式的字符串,转成js对象
+      console.log(JSON.parse(jsonStr))
+    </script>
+  </body>
+</html>

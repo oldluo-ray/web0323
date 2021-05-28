@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <script>
+      let btn = document.getElementById('btn')
+
+      btn.onclick = function () {
+        //1. 创建一个promise实例对象
+        //2. new Promise的同步回调立刻执行了
+        //3. 执行异步代码
+        //4. 执行promise.then方法.此时then的两个回调还没有进入到队列
+        // 什么时候的状态发生变化了,什么时候then的回调才会进入队列
+        // 5. 当定时器时间到了,调用了reject().promise的状态变成了失败.这时将then的第二个回调函数放到队列中,还没有执行
+        // 6. 执行reject后面的代码,当这里的代码执行完毕,表示主线程代码执行完毕
+        // 7. 将放在队列中的then的第二个回调拿到主线程中执行
+        const promise = new Promise((resolve, reject) => {
+          console.log('promise的同步回调执行了')
+          // 执行异步代码
+          setTimeout(() => {
+            // resolve(值) 执行做了两件事:
+            // 1. 将promise实例的状态修改为成功
+            // 2. 将'123'赋值给promise的结果
+
+            // promise的状态只能修改一次.只能由未定义,改为成功/失败
+            // 下面写了两次,后面的那一次没有效果
+            reject('345')
+            // resolve('123')
+
+            // reject(值) 执行做了两件事:
+            // 1. 将promise实例的状态修改为失败
+            // 2. 将'345'赋值给promise的结果
+            console.log(promise)
+          }, 1000)
+        })
+
+        promise.then(
+          (value) => {
+            // promise成功了,会被调用
+            console.log('promise成功了', value)
+          },
+          (value) => {
+            // promise失败了会被调用
+            console.log('promise失败了', value)
+          }
+        )
+      }
+    </script>
+  </body>
+</html>

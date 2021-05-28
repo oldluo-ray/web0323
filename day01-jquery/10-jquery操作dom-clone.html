@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">
+      <span class="span">123</span>
+    </div>
+    <span>span</span>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      // $('.span').click(function () {
+      //   console.log('span的点击事件触发了')
+      // })
+      var span = document.getElementsByClassName('span')[0]
+      span.onclick = function () {
+        console.log('span的点击事件')
+      }
+
+      // $(document.body).append($('.box').clone())
+      // 注意: 虽然传入true可以克隆子元素的事件,但是如果子元素使用的是dom的方式注册,那就无法克隆下来
+      $(document.body).append($('.box').clone(true))
+    </script>
+  </body>
+</html>

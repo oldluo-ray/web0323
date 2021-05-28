@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <span>123</span>
+      <p>456</p>
+    </div>
+    <button id="btn">按钮</button>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      //   $('#btn').on('click', function (e) {
+      //     console.log('按钮触发了1')
+      //     console.log(e)
+      //   })
+      //   $('#btn').on('click', function () {
+      //     console.log('按钮触发了2')
+      //   })
+
+      // jquery从1.7之后,推荐使用on注册事件
+      //   1. 可以给同一个元素注册多个同一事件
+      //   2. 可以非常方便的事件委托
+      $('div').on('click', 'span', [1, 2, 3], function (e) {
+        console.log('触发了')
+        console.log(e)
+      })
+    </script>
+  </body>
+</html>

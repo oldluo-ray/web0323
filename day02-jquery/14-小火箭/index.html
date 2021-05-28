@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      body {
+        height: 8000px;
+      }
+
+      a {
+        color: #fff;
+      }
+
+      .actGotop {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 150px;
+        height: 195px;
+        display: none;
+        z-index: 100;
+      }
+
+      .actGotop a,
+      .actGotop a:link {
+        width: 150px;
+        height: 195px;
+        display: inline-block;
+        background: url(images/gotop.png) no-repeat;
+        outline: none;
+      }
+
+      .actGotop a:hover {
+        width: 150px;
+        height: 195px;
+        background: url(images/gotop.gif) no-repeat;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 返回顶部小火箭 -->
+    <div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      // 需求: 默认小火箭隐藏,
+      //   当整个页面从顶部滚动出去一定距离的时候,
+      //   小火箭展示.然后点击小火箭,
+      //   就让页面慢慢回到顶部
+
+      // 1. 监听页面的滚动条滚动
+      $(window).scroll(function () {
+        // 2. 判断是否滚动出去指定的距离了
+        if ($(window).scrollTop() >= 1000) {
+          // 3. 如果是让小火箭展示,否则让小火箭隐藏
+          $('.actGotop').stop(true).fadeIn()
+        } else {
+          $('.actGotop').stop(true).fadeOut()
+        }
+      })
+
+      // 4. 点击小火箭,整个页面慢慢回到顶部
+      $('.actGotop').click(function () {
+        $('html,body').animate({
+          scrollTop: 0,
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <script>
+      let btn = document.getElementById('btn')
+
+      btn.onclick = function () {
+        const promise = new Promise((resolve, reject) => {
+          // 如果在promise的同步回调中,代码报错,会直接将promise的状态改为失败
+          // console.log(a)
+          console.log('promise的同步回调执行了')
+          // 执行异步代码
+          setTimeout(() => {
+            // 如果在回调中代码报错,整个代码停止
+            // console.log(a)
+            reject('fail')
+            // resolve('ok')
+          }, 1000)
+        })
+
+        promise
+          .then(
+            (value) => {
+              console.log('promise成功了', value)
+
+              return new Promise((resolve, reject) => {
+                resolve('promise2-xxx')
+              })
+            },
+            (value) => {
+              // promise失败了会被调用
+              // 如果promise的回调中代码报错了,会导致返回的promise的状态直接被修改为失败
+              console.log(a)
+              console.log('promise失败了', value)
+              // return new Promise((resolve, reject) => {
+              //   reject('哈哈哈哈')
+              // })
+            }
+          )
+          .then(
+            (value) => {
+              console.log('promise2', '成功了', value)
+            },
+            (value) => {
+              console.log('promise2', '失败了', value)
+            }
+          )
+      }
+    </script>
+  </body>
+</html>

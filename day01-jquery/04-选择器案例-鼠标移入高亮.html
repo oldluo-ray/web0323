@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li>我是li元素1</li>
+        <li>我是li元素2</li>
+        <li>我是li元素3</li>
+        <li>我是li元素4</li>
+        <li>我是li元素5</li>
+        <li>我是li元素6</li>
+        <li>我是li元素7</li>
+        <li>我是li元素8</li>
+      </ul>
+    </div>
+    <script>
+      //webapi
+      // var lis = document.getElementsByTagName('li')
+      // for (var i = 0; i < lis.length; i++) {
+      //   lis[i].onmouseenter = function () {
+      //     for (var i = 0; i < lis.length; i++) {
+      //       lis[i].style.backgroundColor = ''
+      //     }
+      //     this.style.backgroundColor = 'pink'
+      //   }
+      // }
+    </script>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      // 1. 获取所有的li标签, 然后注册鼠标移入事件
+      // 隐式迭代
+      $('li').mouseenter(function () {
+        // 2. 在事件处理函数中,排他
+        // $(this).siblings().css('background-color', '')
+        // // 3. 给自己添加背景颜色
+        // $(this).css('background-color', 'pink')
+        // 链式编程
+        $(this)
+          .css('background-color', 'pink')
+          .siblings()
+          .css('background-color', '')
+      })
+    </script>
+  </body>
+</html>

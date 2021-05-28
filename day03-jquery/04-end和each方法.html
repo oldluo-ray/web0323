@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <span></span>
+      <span></span>
+    </div>
+    <p></p>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      //end方法,返回上一个jquery对象.为了可以继续链式编程
+      //   console.log(
+      //     $('div')
+      //       .css('border', '1px solid blue')
+      //       .children()
+      //       .css('border', '1px solid red')
+      //       .end()
+      //   )
+      //   console.log(
+      //     $('div')
+      //       .css('border', '1px solid blue')
+      //       .siblings()
+      //       .css('border', '1px solid red')
+      //       .end()
+      //   )
+
+      // each方法
+      // 给span加相同的文字
+      $('span').text('haha')
+
+      // 给span加不同的文字:
+      $('span').each(function (index, element) {
+        // console.log(index, element)
+        $(element).text(index)
+      })
+    </script>
+  </body>
+</html>

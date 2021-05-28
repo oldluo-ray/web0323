@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">
+      <span>123</span>
+    </div>
+    <span>span</span>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      // 1. 创建dom对象
+      // 通过jquery创建
+      //   $('html格式的字符串')
+      //   console.log($('<h1>标题</h1>'))
+
+      // 2. 往指定标签中添加子节点
+      //   $('#box').append($('<h1>标题</h1>')) // 可以添加jquery对象
+      //   $('#box').append(document.createElement('h1')) //可以添加dom对象
+      //   $('#box').append('<h1>呵呵呵</h1>') //可以添加html字符串
+      //   $('#box').append($('span')) // 有剪切效果
+
+      //   $('#box').prepend('<p>p</p>') //依然添加子节点,在前面加
+      //   $('#box').after('<a href="">link</a>') // 添加兄弟,后面
+      //   $('#box').before('<h3>嘿嘿嘿</h3>') //添加兄弟,前面
+
+      //   $('#box').html('<p>哈哈哈</p>')
+
+      // html的其他使用方式
+      //   console.log($('#box').html()) //返回box里面的内容
+      //   $('#box').html('') //清空box里面的内容
+      //   $('#box').empty()
+      $('#box').remove()
+    </script>
+  </body>
+</html>

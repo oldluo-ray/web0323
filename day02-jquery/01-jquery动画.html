@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">点击按钮-展示动画效果</button>
+    <div id="box"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $('#btn').click(function () {
+        // 总结:
+        // 展示: show(), slideDown, fadeIn
+        // 隐藏: hide(), slideUp, fadeOut
+        // 注意: show和hide方法如果不传参数,就是展示和隐藏,没有动画效果.其他还是会有
+        // show/hide 改变的是width, height, opacity
+        // slide 改变的是height
+        // fade 改变的是opacity
+        // 注意: 在jquery中,如果要实现动画效果,前提是要被修改的属性,值是数字(整数)
+
+        // $('#box').hide(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+        // $('#box').show(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+        // $('#box').toggle(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+        // $('#box').slideUp()
+        // $('#box').slideDown(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+        // $('#box').slideToggle(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+        // $('#box').fadeIn(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+        // $('#box').fadeOut()
+        // $('#box').fadeToggle(3000, 'linear', function () {
+        //   console.log('动画执行完毕了')
+        // })
+      })
+    </script>
+  </body>
+</html>

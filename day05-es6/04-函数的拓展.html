@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <script>
+      //   function fn2(a, b = 'world') {
+      //     console.log(a, b)
+      //   }
+      //   //   fn2('hello', '')
+      //   //   fn2('hello', undefined)
+      //   //   fn2('hello', null)
+      //   fn2('hello')
+
+      //   function fn3(...yyy) {
+      //     console.log(yyy)
+      //   }
+      //   fn3(1, 2, 3, 4, 5)
+      //   function fn3(a, b, ...params) {
+      //     console.log(a, b, params)
+      //   }
+      //   fn3(1, 2, 3, 4, 5)
+
+      // 箭头函数
+      //   传统定义函数的方式:
+      //   1. 函数声明
+      //   function fn() {}
+      //   //   2. 函数表达式
+      //   let fn = function () {}
+      // es新增箭头函数
+      //   let fn = (x, y) => {
+      //     return x + y
+      //   }
+
+      //   console.log(fn(1, 2))
+
+      //   let btn = document.getElementById('btn')
+      //   btn.onclick = function () {
+      //     console.log(this)
+
+      //     setTimeout(() => {
+      //       this.style.backgroundColor = 'pink'
+      //     }, 1000)
+      //   }
+
+      //   let f3 = () => {
+      //     console.log(arguments) //arguments is not defined
+      //   }
+      //   f3(1, 2, 3, 4, 5)
+
+      //   let F2 = () => {}
+      //   new F2() //F2 is not a constructor
+
+      //   let fn = (x, y) => {
+      //     return x + y
+      //   }
+      // 简写:
+      //   let fn = (x, y) => x + y
+
+      //   let fn1 = (x) => {
+      //     console.log(x)
+      //   }
+      // 简写:
+      let fn1 = (x) => console.log(x)
+      fn1(123)
+
+      // 关于箭头函数简写的总结:
+      //   1. 如果只有一个形参,就可以忽略小括号
+      //   2. 如果没有形参,或形参大于1个,就必须写小括号
+      //   3. 如果只有一行代码,可以忽略花括号, 会自动将这一行代码执行的结果返回出去(省略return)
+      // 关于箭头函数注意点的总结:
+      //   1. 没有this. 如果里面写了,也是外部的this
+      //   2. 不能当做构造函数使用
+      //   3. 没有arguments
+    </script>
+  </body>
+</html>

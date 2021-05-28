@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 传统的写法
+
+      // function Person(name, age) {
+      //   this.name = name //实例的属性
+      //   this.age = age //实例的属性
+      // }
+      // Person.prototype.say = function () {
+      //   console.log('你好,我是' + this.name)
+      // }
+
+      // function Student(name, age, score) {
+      //   Person.call(this, name, age)
+      //   this.score = score
+      // }
+
+      // Student.prototype = new Person()
+
+      // class 是语法糖,最终执行的时候,还是解析成构造函数的方式去执行
+      // 定义一个person类
+      class Person {
+        constructor(name, age) {
+          this.name = name //实例的属性
+          this.age = age //实例的属性
+        }
+        // 相当于给Person的原型添加了一个say方法
+        say() {
+          console.log('你好,我是' + this.name)
+        }
+      }
+
+      // 注意:
+      // 1. 一个类继承了另一个类, 可以不写constructor,但是如果写了,就必须在constructor里面的第一行调用super
+      // 2. 一个类继承了另一个类, 可以不写constructor.如果不写,js底层会自动帮我们加上constructor(){super()}
+      // 3. 如果一个类没有继承其他类,可以不写contructor,如果写了,千万不要写super
+      class Student {
+        constructor(name, age, score) {
+          // super(name, age)
+          this.score = score
+        }
+      }
+      // class Student extends Person {
+      //   constructor(name, age, score) {
+      //     super(name, age)
+      //     this.score = score
+      //   }
+      // }
+
+      const p1 = new Person('zs', 18)
+      console.log(p1)
+      const stu1 = new Student('ls', 18, 100)
+      console.log(stu1)
+      stu1.say()
+    </script>
+  </body>
+</html>

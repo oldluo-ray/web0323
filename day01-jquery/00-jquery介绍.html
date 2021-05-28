@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">123</div>
+    <!-- 1.引入jquery -->
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+      // 比window.onload好的地方: 只要dom加载完毕就会触发
+      //   $(document).ready(function () {
+      //     console.log(document.getElementsByTagName('div'))
+      //   })
+
+      // 简写形式:
+      //   $(function () {
+      //     console.log(document.getElementsByTagName('div'))
+      //   })
+
+      // dom对象和jquery对象
+
+      //    jquery对象就是对dom对象的包装 jquery对象只能只用jquery的方法.不能使用dom的方法
+      //    dom对象就是我们之前接触过的dom. 只能使用dom的方法,不能使用jquery的方法
+
+      // dom和jquery的转换
+      //   把dom转成jquery
+      //   $(dom对象) ==> 得到了一个jquery
+
+      //   把jquery对象转成dom对象
+      var box = document.getElementById('box')
+      console.log(box)
+      console.log($(box))
+      // jquery==>dom. 就是把jquery中的dom从壳里面拿出来
+      console.log($(box)[0])
+      console.log($(box).get(0))
+    </script>
+  </body>
+</html>
