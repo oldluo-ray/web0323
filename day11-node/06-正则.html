@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 正则
+
+      // 创建正则对象: /字符/
+
+      //   /a/ 此时的正则规则: 只要字符串中包含了字符a就符合要求
+      //   let reg = /a/
+      //   reg.test(字符串) 返回结果, 如果字符串符合要求就返回true, 不符合要求就返回false
+      let reg = /a/ //只要包含字符a就可以
+      reg = /b/ // 只要包含字符b就可以
+
+      // 特殊字符
+      reg = /\d/ // 只要字符串中包含数字就可以
+      reg = /\D/ // 只要字符串中包含非数字就可以
+      reg = /\w/ // 只要字符串中包含数字或字母或下划线就可以
+      reg = /\W/ // 只要字符串中包含非数字或非字母或非下划线就可以
+      reg = /\s/ // 包含任意的空白符就可以
+      reg = /\S/ // 包含任意的非空白符就可以
+      reg = /./ // 包含除换行符以外的任何字符都可以
+      reg = /^a/ // ^表示以什么开头. 字符串必须以a开头
+      reg = /a$/ // $以什么结尾. 字符串必须以a结尾
+      reg = /^ab$/ // 字符串必须是ab
+
+      // 限定符:
+
+      reg = /^a*b$/ // a开头但是可以不写,也可以写多个,b只能是一个
+      reg = /^a*b+$/ // a是0~多个,b是1~多个
+      reg = /^a?b$/ // b 或者是ab
+      reg = /^a{2}b{3,}$/ // 两个a,至少3个b
+      reg = /^ab{3,6}$/ // a一个,b是3~6个
+      reg = /^a[bef]c$/ // []占一个位置,这个位置可以任选其中一个
+      reg = /^a[^bef]c$/ //[^] 中间不能是bef,其他都可以
+      reg = /^a\.b$/ // \转义符,主要用来将特殊字符,转成普通字符 必须是a.b
+      reg = /^a|b$/ // 以a开头或以b结尾
+      reg = /^a(e|f)b$/ // aeb或afb
+      reg = /^(ab){3}$/ // 只能是ababab
+      reg = /^[\u4e00-\u9fa5]$/ // 只能是一个中文,但是可以是任意中文
+      reg = /^[A-Za-z]$/ // 表示所有的大写和小写的英文字符
+      console.log(reg.test('a'))
+    </script>
+  </body>
+</html>
