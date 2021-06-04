@@ -8,12 +8,13 @@
   </head>
   <body>
     <h1>登录页面</h1>
-    <form action="" method="POST">
-      用户名: <input type="text" name="username" /> <br />
+    <form action="http://127.0.0.1:5000/login" method="POST" id="form">
+      用户名: <input type="text" name="username" /> <span></span> <br />
       密码:
-      <input type="password" name="password" /> <br />
+      <input type="password" name="password" /> <span></span><br />
 
       <input type="submit" value="登录" />
     </form>
+    <script src="../js/logintest.js"></script>
   </body>
 </html>
