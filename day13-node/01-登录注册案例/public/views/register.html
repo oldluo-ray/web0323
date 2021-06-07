@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>注册页面</h1>
+    <!-- 完整的url: http://127.0.0.1:5000/register -->
+    <!-- 相对的url: /regiseter  ==> http://127.0.0.1:5000/register -->
+    <!-- 相对的url: ./regiseter  ==> http://127.0.0.1:5000/views/register -->
+    <form action="http://127.0.0.1:5000/register" method="POST" id="form">
+      用户名: <input type="text" name="username" /> <span></span> <br />
+      密码:
+      <input type="password" name="password" /> <span></span> <br />
+      确认密码:
+      <input type="password" name="repassword" /> <span></span> <br />
+      <input type="submit" value="注册" />
+    </form>
+    <script src="../js/registertest.js"></script>
+  </body>
+</html>

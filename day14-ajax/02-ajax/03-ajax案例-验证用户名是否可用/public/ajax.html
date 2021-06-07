@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <button id="btn">按钮</button>
+    <span id="span"></span>
+    <script>
+      // 1. 获取元素  btn input
+      let btn = document.getElementById('btn')
+      let input = document.getElementById('input')
+      let span = document.getElementById('span')
+
+      // 2. 给按钮注册点击事件
+      btn.onclick = function () {
+        // 3. 在事件处理函数中获取用户输入的用户名
+        let value = input.value.trim()
+        if (!value) return
+        // 4. 将用户名通过ajax上传给服务器
+        // 4.1 创建xhr实例
+        const xhr = new XMLHttpRequest()
+        // 4.2 调用open,设置请求首行
+        xhr.open('post', 'http://127.0.0.1:5000/test')
+        // 4.3 设置请求头
+        xhr.setRequestHeader(
+          'content-type',
+          'application/x-www-form-urlencoded'
+        )
+        // 4.4 设置请求主体,并发送请求
+        xhr.send('username=' + value)
+        // 5. 根据服务器响应结果,提示用户
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              //
+              console.log(xhr.responseText)
+              let obj = JSON.parse(xhr.responseText)
+              if (obj.status === 'no') {
+                // 不可用
+                span.textContent = obj.message
+                span.style.color = 'red'
+              } else {
+                // 可用
+                span.textContent = obj.message
+                span.style.color = 'green'
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

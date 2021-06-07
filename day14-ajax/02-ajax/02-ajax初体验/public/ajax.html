@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <form action="" enctype="application/x-www-form-urlencoded"></form> -->
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+
+    <script>
+      let btn = document.getElementById('btn')
+      let box = document.getElementById('box')
+      btn.onclick = function () {
+        const xhr = new XMLHttpRequest()
+        console.log(xhr.readyState)
+        // xhr.open('get', 'http://127.0.0.1:5000/test')
+        xhr.open('post', 'http://127.0.0.1:5000/test')
+        console.log(xhr.readyState)
+        // xhr.setRequestHeader(
+        //   'content-type',
+        //   'application/x-www-form-urlencoded'
+        // )
+        xhr.send('username=zs&age=18')
+
+        xhr.onreadystatechange = function () {
+          console.log(xhr.readyState)
+          if (xhr.readyState === 4) {
+            // 表示响应完成
+            if (xhr.status === 200) {
+              // 响应成功
+              console.log(xhr.responseText) // 获取响应主体中的信息(字符串)
+              // console.log(xhr.getResponseHeader('content-type'))
+              // console.log(xhr.getAllResponseHeaders())
+              box.textContent = xhr.responseText
+            }
+          }
+        }
+
+        console.log(123)
+        console.log(456)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+
+    <script src="./jquery.js"></script>
+    <script>
+      $('#btn').on('click', function () {
+        $.ajax({
+          url: 'http://127.0.0.1:5000/test', //请求地址
+          // type: 'post', //请求方式. 默认是get
+          data: {
+            // 上传的数据, get/post都是这么写
+            name: 'zs',
+            age: 18,
+          },
+          dataType: 'text', // 默认值也是json. 如果后台返回的是json字符串,在成功的回调中可以直接拿到解析后的js对象,
+          // timeout: 3000, //超时时间
+          // beforeSend: function () {
+          //   // 请求发送之前调用, 如果显式的return false,就不发送请求了
+          //   console.log('beforeSend')
+          //   return 0
+          // },
+          success: function (data) {
+            // 响应成功的回调, data就是响应主体的数据
+            console.log('success', data)
+          },
+          // error: function (xhr) {
+          //   // 响应失败的回调, xhr就是请求对象
+          //   console.log('error', xhr)
+          // },
+          // complete: function () {
+          //   // 响应完成:不管成功失败都是完成
+          //   console.log('complete')
+          // },
+        })
+      })
+    </script>
+  </body>
+</html>
