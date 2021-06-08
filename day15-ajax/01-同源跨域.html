@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">anniu</button>
+    <script>
+      //   const xhr = new XMLHttpRequest()
+      //   xhr.open('get', 'http://127.0.0.1:5000/test')
+      //   xhr.send()
+
+      //   xhr.onreadystatechange = function () {
+      //     if (xhr.readyState === 4 && xhr.status === 200) {
+      //       console.log(xhr.responseText)
+      //     }
+      //   }
+      // 由于浏览器的同源策略,所以ajax没法用了,要使用别的方式代替
+      // 1.  a标签 可以发请求,不受同源策略影响,但是a标签会跳转页面 (不适用)
+      // 2. link, img 不受同源影响,但是有特定的作用,也不适用
+      // 3. script
+
+      // 实现跨域: jsonp
+      //   jsonp原理: 利用script标签不受同源测略影响,给服务器发送请求,将一个函数的名字发送给服务器,服务器响应这个函数的调用.将要响应的数据,传入到函数调用的实参
+      //   jsonp的特点: 1. 只能发get请求  2. 必须后台配合  3. 没有兼容性问题
+
+      // 1. 声明一个回调函数,可以接收响应后的数据
+      function fn1(data) {
+        console.log(data)
+
+        console.log('拿到数据时候的操作,写在这里')
+      }
+      btn.onclick = function () {
+        // 2. 在需要发送请求的位置上,动态的创建script标签,将回调函数上传到服务器,服务器响应的是这个函数调用.会将响应的数据,作为实参,写在函数调用中
+        let script = document.createElement('script')
+        script.src = 'http://127.0.0.1:5000/test?callback=fn1'
+        document.body.appendChild(script)
+
+        console.log(1)
+        console.log(2)
+      }
+    </script>
+    <!-- <script src="http://127.0.0.1:5000/test">
+
+          // 将请求回来的数据,放在这里执行
+        //   [1,2,3]
+      //   let arr = [1, 2, 3]
+    </script> -->
+    <!-- <script>
+      console.log(arr)
+    </script> -->
+    <!-- <script>
+      fn([1, 2, 3])
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ajax</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      .chatbox {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 5px;
+      }
+
+      .messages {
+        height: 350px;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #ccc;
+        overflow: scroll;
+      }
+
+      .messages h5 {
+        font-size: 20px;
+        margin: 10px 0;
+      }
+
+      .messages p {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .self {
+        text-align: right;
+      }
+
+      .other {
+        text-align: left;
+      }
+
+      .form {
+        height: 150px;
+      }
+
+      .form .input {
+        height: 110px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .form .btn {
+        height: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid #ccc;
+      }
+
+      .form textarea {
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: none;
+        resize: none;
+        outline: none;
+        font-size: 20px;
+      }
+
+      .form input {
+        display: block;
+        width: 100px;
+        height: 30px;
+        margin-top: 5px;
+        margin-right: 20px;
+        float: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>高级智能机器人</h3>
+    <div class="chatbox">
+      <!-- 聊天内容 -->
+      <div class="messages">
+        <!-- <div class="self">
+        <h5>我说</h5>
+        <p>你好</p>
+      </div>
+      <div class="other">
+        <h5>对方说</h5>
+        <p>你好</p>
+      </div> -->
+      </div>
+      <div class="form">
+        <div class="input">
+          <textarea></textarea>
+        </div>
+        <div class="btn">
+          <input type="button" value="发送" id="btn" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. 获取元素: .input textarea  #btn
+      let ta = document.querySelector('.input textarea')
+      let btn = document.getElementById('btn')
+      let message = document.getElementsByClassName('messages')[0]
+      let count = 0
+      // 2. 给按钮注册点击事件
+      btn.onclick = function () {
+        // 3. 获取文本域的内容
+        let value = ta.value.trim()
+        if (!value) return
+
+        // 4. 将用户输入的内容,显式在页面上
+        count++
+        let str = `<div class="self" id=${'self' + count}>
+                      <h5>我说</h5>
+                      <p>${value}</p>
+                    </div>`
+
+        message.innerHTML += str
+        let selfbox = document.getElementById('self' + count)
+        selfbox.scrollIntoView() //可以让当前dom元素,自动出现在可视区
+        ta.value = ''
+
+        // 5. 再将用户的信息,发送给机器人
+        const xhr = new XMLHttpRequest()
+        xhr.open('post', 'http://www.tuling123.com/openapi/api')
+        xhr.setRequestHeader(
+          'content-type',
+          'application/x-www-form-urlencoded'
+        )
+        xhr.send(
+          `key=7dc4f7a495ec45899fb7eb883f234a94&info=${value}&userid=335220`
+        )
+
+        xhr.onreadystatechange = function () {
+          if ((xhr.readyState === 4) & (xhr.status === 200)) {
+            // console.log(xhr.responseText)
+            // 把响应json字符串解析成js对象
+            const obj = JSON.parse(xhr.responseText)
+
+            if (obj.code === 100000) {
+              //普通文本
+              let str = `<div class="other" id="${'other' + count}">
+                          <h5>对方说</h5>
+                          <p>${obj.text}</p>
+                        </div>`
+              message.innerHTML += str
+            } else if (obj.code === 200000) {
+              // 链接类
+              let str = `<div class="other">
+                          <h5>对方说</h5>
+                          <p>${obj.text}</p>
+                          <a href="${obj.url}">点击打开图片</a>
+                        </div>`
+              message.innerHTML += str
+            }
+
+            let otherbox = document.getElementById('other' + count)
+            otherbox.scrollIntoView()
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
