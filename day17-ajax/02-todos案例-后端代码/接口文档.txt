@@ -1,0 +1,38 @@
+todos案例接口文档: 
+
+1. 查询所有任务数据: 
+    url: http://127.0.0.1:5000/getTodoList
+    请求方式: GET 
+    参数: callback 函数名 
+    响应结果: 数组 [任务对象,任务对象]
+
+2. 添加任务: 
+    url: http://127.0.0.1:5000/addTodo
+    请求方式: POST 
+    参数: todoName 任务名 
+    响应结果: 数组 [任务对象,任务对象]
+
+3. 修改一条任务: 
+    url: http://127.0.0.1:5000/updateTodo
+    请求方式: POST 
+    参数: id 任务的id, isDone 任务的状态 
+    响应结果: 数组 [任务对象,任务对象]
+
+4. 修改多条任务: 
+    url: http://127.0.0.1:5000/updateAllTodos
+    请求方式: POST 
+    参数: ids 多个任务的id(数组), isDone 任务的状态 
+    响应结果: 数组 [任务对象,任务对象]
+
+
+5. 删除一条任务: 
+    url: http://127.0.0.1:5000/deleteTodo
+    请求方式: POST 
+    参数: id 任务的id 
+    响应结果: 数组 [任务对象,任务对象]
+
+6. 删除多条任务: 
+    url: http://127.0.0.1:5000/clearAllDoneTodos
+    请求方式: POST 
+    参数: ids 多个任务的id(数组)
+    响应结果: 数组 [任务对象,任务对象]

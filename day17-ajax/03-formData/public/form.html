@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="file" id="file" />
+
+    <div id="btn">按钮</div>
+    <script>
+      const file = document.getElementById('file')
+      const btn = document.getElementById('btn')
+
+      btn.onclick = function (e) {
+        e.preventDefault()
+        // 要上传的文件的文件对象
+        let f = file.files[0]
+        // 创建formdata实例
+        const formdata = new FormData()
+        formdata.append('file', f)
+
+        const xhr = new XMLHttpRequest()
+        xhr.open('post', 'http://127.0.0.1:5000/upload')
+
+        // 发送文件之前,注册事件,监听文件上传的进度
+        xhr.upload.onprogress = function (e) {
+          console.log('已经上传的字节: ', e.loaded)
+          console.log('文件总大小(字节): ', e.total)
+        }
+
+        //   // 注意: 使用formdata就可以不设置请求头的content-type了,因为使用了formdata.浏览器就会自动根据formdata中的数据,添加合适的content-type
+        xhr.send(formdata)
+
+        // xhr.onreadystatechange = function () {
+        //   if (xhr.readyState === 4 && xhr.status === 200) {
+        //     console.log(xhr.responseText)
+        //   }
+        // }
+      }
+    </script>
+  </body>
+</html>

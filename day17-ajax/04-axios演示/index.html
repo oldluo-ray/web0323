@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">按钮</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      btn.onclick = async function () {
+        // get请求
+        // let result = await axios({
+        //   method: 'get',
+        //   url: 'http://127.0.0.1:5000/test',
+        //   params: {
+        //     username: 'zs',
+        //     age: 18,
+        //   },
+        // })
+        // console.log(result)
+
+        // post请求
+        // 注意: 使用axios发送post请求,axios自动在请求头中添加了content-type值为application/json
+        let result = await axios({
+          method: 'post',
+          url: 'http://127.0.0.1:5000/test',
+          //   注意: post/put/delete 都是使用data上传数据
+          data: {
+            username: 'zs',
+            age: 18,
+          },
+        })
+        // result是axios包装的一个对象.里面的data属性的值才是响应主体中响应回来的数据
+        console.log(result)
+      }
+    </script>
+  </body>
+</html>
