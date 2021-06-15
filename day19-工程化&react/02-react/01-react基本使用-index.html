@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 10px solid pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- react核心包 -->
+    <script src="./js/react.development.js"></script>
+    <!-- react操作dom的包 -->
+    <script src="./js/react-dom.development.js"></script>
+    <!-- 引入babel, 让babel将jsx,编译成浏览器认识的React.createElement -->
+    <script src="./js/babel.min.js"></script>
+    <!-- 注意: 如果要写jsx, 需要在script上声明type="text/babel" babel才会解析里面的代码 -->
+    <script type="text/babel">
+      // h1 里面存储的是一个react元素/虚拟dom
+      // react不直接操作真实dom,是因为操作页面结构的行为很多,并且操作虚拟dom效率高,所以先操作虚拟dom. 操作完毕之后,再根据虚拟dom,创建真实的dom,进行渲染
+      //   const h1 = React.createElement(
+      //     'h1', //标签名
+      //     { id: 'box', className: 'box' }, //标签的属性
+      //     '哈哈哈', //后面的就是子节点
+      //     '呵呵呵'
+      //   )
+      //   console.log(h1)
+
+      // jsx
+      //   const h1 = <h1 className="box">哈哈哈 呵呵呵</h1>
+      // 注意: 一段jsx中,只能有一个根标签
+      const div = (
+        <div>
+          <div>
+            <h1>
+              <p>
+                <span></span>
+              </p>
+            </h1>
+          </div>
+          <p></p>
+        </div>
+      )
+
+      //   ReactDOM.render(要渲染的虚拟dom, 渲染的位置)
+      ReactDOM.render(h1, document.getElementById('root'))
+    </script>
+  </body>
+</html>

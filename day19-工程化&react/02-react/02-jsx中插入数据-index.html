@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- react核心包 -->
+    <script src="./js/react.development.js"></script>
+    <!-- react操作dom的包 -->
+    <script src="./js/react-dom.development.js"></script>
+    <!-- 引入babel, 让babel将jsx,编译成浏览器认识的React.createElement -->
+    <script src="./js/babel.min.js"></script>
+    <!-- 注意: 如果要写jsx, 需要在script上声明type="text/babel" babel才会解析里面的代码 -->
+    <script type="text/babel">
+      // 什么是静态页面? 数据不会变化的页面
+      // 什么是动态页面? 数据会变化的页面
+      // 插值表达式: 里面可以写任何的js表达式
+      // js表达式: 字面量, 变量, 常量, 运算, 与或非, 函数声明,函数调用 (只要有返回值就是表达式)
+      // 插值表达式的位置: 1. 标签的子节点  2. 属性的值的位置.不用写引号
+      let arr = ['a', 'b', 'c']
+      let username = 'zs'
+      function fn() {
+        return 123
+      }
+      // 注意: 数组是可以渲染的. 而且未来经常渲染数组
+      const h1 = <h1 className={false ? 'box' : ''}>{arr}</h1>
+      // const h1 = <h1>{username}</h1>
+      // const h1 = <h1>{123}</h1>
+      // 注意:函数声明式表达式,一定可以写入到插值表达式中.但是不要去渲染一个函数.没有意义
+      // const h1 = (
+      //   <h1>
+      //     {function () {
+      //       return 123
+      //     }}
+      //   </h1>
+      // )
+      // const h1 = <h1>{fn()}</h1>
+      // 注意:对象是表达式, 一定可以写入到插值表达式中.但是不要去渲染一个对象.没有意义
+      // const h1 = <h1>{{ name: 'zs', age: 18 }}</h1>
+      // const h1 = <h1>{1+1}</h1>
+      // const h1 = <h1>{1 && 2}</h1>
+      // const h1 = <h1>{true ? '哈哈' : '嘿嘿'}</h1>
+      // 注意: true/false,可以写入插值表达式,但是不要渲染.看不到效果,没有意义
+      // const h1 = <h1>{true}</h1>
+      // const h1 = <h1>{false}</h1>
+
+      // ReactDOM.render(要渲染的虚拟dom, 渲染的位置)
+      ReactDOM.render(h1, document.getElementById('root'))
+    </script>
+  </body>
+</html>
