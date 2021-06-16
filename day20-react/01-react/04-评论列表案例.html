@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        - 需求：实现评论列表功能
+
+        - 如果有评论数据，就展示列表结构 li（ 列表渲染 ）要包含a标签
+
+        - name 表示评论人，渲染 h3
+        - content 表示评论内容，渲染 p
+
+        - 如果没有评论数据，就展示一个 h1 标签，内容为： 暂无评论！
+
+        - 根据自己的喜好添加样式
+
+        - 给a标签注册点击事件, 打印内容
+        
+        */
+
+      const list = [
+        { id: 1, name: 'jack', content: 'rose, you jump i jump' },
+        { id: 2, name: 'rose', content: 'jack, you see you, one day day' },
+        { id: 3, name: 'tom', content: 'jack,。。。。。' },
+      ]
+
+      // 1. 渲染列表
+      const lis = list.map((item) => {
+        return (
+          <li key={item.id} style={{ backgroundColor: 'green' }}>
+            <a href="" onClick={fn}>
+              <h3 style={{ backgroundColor: 'red' }}>{item.name}</h3>
+              <p style={{ backgroundColor: 'pink' }}>{item.content}</p>
+            </a>
+          </li>
+        )
+      })
+
+      function fn(e) {
+        e.preventDefault()
+        // console.log(this) 注意: 我们的代码会被babel编译,变成了严格模式.严格模式下,this指向undefined
+        // console.log(e.target)
+        if (e.target.nodeName === 'A') return
+        console.log(e.target.textContent)
+      }
+
+      let ul = <ul>{lis}</ul>
+      ReactDOM.render(
+        list.length ? ul : <h1>暂无数据</h1>,
+        document.getElementById('root')
+      )
+    </script>
+  </body>
+</html>

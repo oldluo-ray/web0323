@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+
+    <script type="text/babel">
+      function fn(e) {
+        // react中e叫做合成事件, 是对原生的事件对象进行了包装
+        // 默认打印e,看到不到属性的值,但是可以正常使用.如果要看值,可以调用persist()方法
+        e.persist()
+        // console.log('test')
+        // console.log(e.target)
+        console.log(e)
+      }
+      // const div = (
+      //   <div onClick={fn} style={{ backgroundColor: 'red' }}>
+      //     123
+      //   </div>
+      // )
+
+      function fn1(e) {
+        console.log('a标签被打印了')
+        // return false // 注意在react中,阻止默认行为,return false无效
+        e.preventDefault()
+      }
+      const link = (
+        <a href="http://www.atguigu.com" onClick={fn1}>
+          跳转
+        </a>
+      )
+      ReactDOM.render(link, document.getElementById('root'))
+    </script>
+  </body>
+</html>

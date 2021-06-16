@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+
+    <script type="text/babel">
+      // 如何条件渲染
+      //   let age = 16
+      //   //
+      //   let title
+      //   if (age >= 18) {
+      //     //展示h1
+      //     title = <h1>大人看的动画片</h1>
+      //   } else {
+      //     //  展示h5
+      //     title = <h5>小人看的动画片</h5>
+      //   }
+
+      // 如何列表渲染
+
+      let arr = [{ name: 'zs' }, { name: 'ls' }, { name: 'ww' }]
+      // 根据arr,动态的渲染一个无序列列表
+      //   <ul>
+      //         <li></li>
+      //   </ul>
+
+      let newArr = arr.map((item, index) => {
+        // 注意: 只要列表渲染了,map的回调中return什么, 就在什么上面加一个key.值是唯一的
+        // key的值的注意点: 如果列表没有删除逻辑,key的值不重复就可以. 如果列表有删除逻辑,就最好不要用下标,因为数组中的元素删除后,下标会变化
+        return <li key={index}>{item.name}</li>
+      })
+      console.log(newArr)
+
+      let title = <ul>{newArr}</ul>
+
+      ReactDOM.render(title, document.getElementById('root'))
+    </script>
+  </body>
+</html>

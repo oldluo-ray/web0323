@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function Person(name) {
+      //     this.name = name // 添加到实例上的属性
+      //   }
+
+      //   Person.prototype.say = function () {
+      //     console.log('你好,我是' + this.name)
+      //   }
+
+      //   function Student(name, score) {
+      //     Person.call(this, name)
+      //     this.score = score
+      //   }
+      //   Student.prototype = new Person()
+
+      class Person {
+        constructor(name) {
+          this.name = name
+        }
+        // 直接在类中定义函数,以下的写法,就是往原型上加函数
+        say() {
+          console.log('你好,我是' + this.name)
+        }
+      }
+
+      class Student extends Person {
+        constructor(name, score) {
+          super(name)
+          this.score = score
+        }
+      }
+
+      let p = new Person('zs')
+      console.log(p)
+      p.say()
+      let s = new Student('ls', 100)
+      console.log(s)
+      s.say()
+    </script>
+  </body>
+</html>
