@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // localStorage.setItem('键',值) 添加数据. 如果键重复复了,会覆盖原来的内容. 存进去都是字符串
+      // localStorage.getItem('键') 获取数据
+      //   localStorage.setItem('test', 123)
+      //   localStorage.setItem('test', 345)
+      //   console.log(localStorage.getItem('test'))
+      //   注意: 不能直接存储对象/数组
+      //   localStorage.setItem('arr', [1, 2, 3])
+      //   localStorage.setItem('obj', { name: 'zs' })
+      //   console.log(localStorage.getItem('arr'))
+      //   console.log(localStorage.getItem('obj'))
+      let obj = {
+        name: 'zs',
+      }
+
+      let objstr = JSON.stringify(obj)
+      console.log(objstr)
+      localStorage.setItem('test', objstr)
+      let str = localStorage.getItem('test')
+
+      console.log(JSON.parse(str))
+    </script>
+  </body>
+</html>
