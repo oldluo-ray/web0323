@@ -22,10 +22,24 @@ export default class App extends Component {
         <NavLink activeClassName="show" to="/detail">
           detail
         </NavLink>
-        
+        <NavLink to="/abc">重定向</NavLink>
 
+        {/* Switch 的作用: 如果包裹的Route中有一个匹配成功了,后面的就不会在匹配了 */}
+        {/* <Switch>
+          <Route path="/home" component={Home}></Route>
+          <Route path="/detail" component={Detail}></Route>
+          <Route path="/" component={Home}></Route>
+        </Switch> */}
+
+        {/* Redirect to属性可以将路径修改为指定值, 默认打开页面就生效. from属性,可以控制在某个路径重定向,但是需要包裹Switch才能生效 */}
+        {/* <Redirect to="/home"></Redirect>
         <Route path="/home" component={Home}></Route>
-        <Route path="/detail" component={Detail}></Route>
+        <Route path="/detail" component={Detail}></Route> */}
+        <Switch>
+          <Redirect from="/abc" to="/home"></Redirect>
+          <Route path="/home" component={Home}></Route>
+          <Route path="/detail" component={Detail}></Route>
+        </Switch>
       </div>
     )
   }
