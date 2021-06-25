@@ -6,43 +6,31 @@ import Item from './components/Item/Item'
 import PubSub from 'pubsub-js'
 import './App.css'
 export default function App() {
-
   console.log('函数组件的状态更新了,整个代码执行了一遍')
-  // 修改数据的操作,最好不要出现在异步中
-  // let todos = JSON.parse(localStorage.getItem('todos'))
-  // if (!todos) {
-  //   todos = []
-  // }
-  // let [list, setList] = useState(todos)
-  let [list, setList] = useState([{id:1, todoName: 'haha', isDone:false},{id:2, todoName: 'hehe', isDone:true}])
 
-  useEffect(()=>{
-    console.log('外层执行了');
-    let token = PubSub.subscribe('addtodoName',(topic,data)=>{
+  let [list, setList] = useState([])
 
-      console.log(data);
-      console.log('list',list);
+  useEffect(() => {
+    console.log('外层执行了')
+    let token = PubSub.subscribe('addtodoName', (topic, data) => {
+      console.log(data)
+      console.log('list', list)
       const newList = [...list]
       let obj = {
         id: Date.now(),
         isDone: false,
-        todoName: data
+        todoName: data,
       }
       newList.push(obj)
-      console.log('newList',newList);
+      console.log('newList', newList)
 
       setList(newList)
-
     })
-    return () =>{
+    return () => {
       // 内层执行了
       PubSub.unsubscribe(token)
     }
   })
-
-
-
-  
 
   const total = list.length
   const doneTotal = list.filter((item) => {
