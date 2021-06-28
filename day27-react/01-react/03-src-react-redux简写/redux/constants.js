@@ -1,0 +1,3 @@
+const INCREMENT = 'INCREMENT'
+const PUSH = 'PUSH'
+export { INCREMENT, PUSH }
