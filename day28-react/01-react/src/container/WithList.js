@@ -1,8 +1,4 @@
 import { connect } from 'react-redux'
+import List from '../components/List/List'
 
-import List from '../components/List'
-import { getDataAsync } from '../redux/actions'
-
-export default connect((state) => ({ list: state.list }), { getDataAsync })(
-  List
-)
+export default connect((state) => ({ list: state.list }))(List)

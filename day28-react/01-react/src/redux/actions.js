@@ -1,19 +1,34 @@
-import { GET_DATA } from './constants'
-import axios from 'axios'
-//定义同步action
-function getData(data) {
-  return { type: GET_DATA, data }
+import {
+  ADD_TODO,
+  UPDATE_TODO,
+  DELETE_TODO,
+  ALL_CHECKED,
+  DELETE_ALL_DONE,
+} from './constants'
+
+// 添加任务
+function addTodo(data) {
+  return { type: ADD_TODO, data }
 }
 
-// 定义一个异步action,用于发送ajax请求
-function getDataAsync() {
-  return async (dispatch) => {
-    let result = await axios({
-      method: 'get',
-      url: 'http://127.0.0.1:5000/test',
-    })
-    dispatch(getData(result.data))
-  }
+// 修改任务
+function updateTodo(id) {
+  return { type: UPDATE_TODO, id }
 }
 
-export { getDataAsync }
+// 删除任务
+function deleteTodo(id) {
+  return { type: DELETE_TODO, id }
+}
+
+// 全选按钮
+function allCheckedTodo() {
+  return { type: ALL_CHECKED }
+}
+
+// 删除所有完成项
+function deleteAllDone() {
+  return { type: DELETE_ALL_DONE }
+}
+
+export { addTodo, updateTodo, deleteTodo, allCheckedTodo, deleteAllDone }
