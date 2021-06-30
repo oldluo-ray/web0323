@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+            位图: 是由位图像素组成, 位图像素相当于css像素
+            位图缺点: 会失真
+            失真的原因: 一个位图被多个物理像素渲染
+            解决失真: 保证一个位图被一个物理像素渲染
+            解决办法: 判断当前用户的屏幕是像素比是多少,如果像素比是1, 就使用默认图. 如果像素比是2,就使用2倍图, 如果像素比是3,就使用三倍图
+
+            如何获取像素比: 
+                1. 媒体查询
+                2. window.devicePixelRatio
+        
+        
+         */
+      .box {
+        width: 200px;
+        height: 200px;
+        background-image: url('./assets/logo.png');
+        background-size: 100%;
+      }
+      @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .box {
+          background-image: url('./assets/logo@2x.png');
+        }
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 3) {
+        .box {
+          background-image: url('./assets/logo@3x.png');
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>
