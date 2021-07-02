@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--  width: 值会设置给布局视口 
+            取值: device-width 设备独立像素的宽度
+                  具体的数字 但是很多android设备不支持,所以一般不用
+
+
+          initial-scale 的值是通过 scale = 屏幕宽度(设备独立像素)  /  布局视口宽度。 计算出来的
+    
+    -->
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <!-- <meta name="viewport" content="width=300"> -->
+    <!-- <meta name="viewport" content="initial-scale=0.5"> -->
+    <!-- 注意: 当width和initital-scale控制 布局视口的宽度,存在差异的时候,谁的值大听谁的-->
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=0.5">
+    <meta name="viewport" content="width=device-width,initial-scale=2"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(document.documentElement.clientWidth);
+    </script>
+</body>
+</html>

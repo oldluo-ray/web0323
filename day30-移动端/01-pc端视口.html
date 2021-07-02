@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        body {
+            height: 1500px;
+        }
+
+        .box {
+            background-color: red;
+            height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <img src="./assets/1.jpg" alt="">
+    <img src="./assets/2.jpg" alt="">
+    <img src="./assets/3.jpg" alt="">
+    <img src="./assets/4.jpg" alt="">
+    <script>
+        console.log('浏览器最干净的可视区域',document.documentElement.clientWidth) //浏览器最干净的可视区域（常用）
+        // pc端,浏览器可以随意被用户控制,也就意味着pc的视口会不断的发生变化,这就可能会导致pc页面的布局出现问题.解决方案: 就是使用版心.让视口变化到版心宽度的时候,就不在变小,布局就不会乱
+        // pc端: 视口的宽度会影响布局
+        console.log('包含滚动条可视区域',window.innerWidth);//包含滚动条可视区域
+        console.log('包含滚动条、边框的可视区域',window.outerWidth);//包含滚动条、边框的可视区域
+        console.log('与浏览器无关，设备整个屏幕的宽度',screen.width);//与浏览器无关，设备整个屏幕的宽度
+    </script>
+</body>
+</html>

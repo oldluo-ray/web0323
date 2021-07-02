@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 3.45rem;
+        height: 1.5rem;
+        background-color: skyblue;
+        margin: 0.15rem;
+        /* 1px不参与适配 */
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      function fn() {
+        // 1.计算根标签字体大小:
+        document.documentElement.style.fontSize =
+          (document.documentElement.clientWidth * 100) / 375 + 'px'
+      }
+      fn()
+      //window.onsize 可以监听到视口的变化
+      window.onresize = fn
+
+      // 让布局视口变大. 布局视口变大,1px对应的就会使用1个物理像素渲染
+      // 但是整个布局又乱了
+      var viewport = document.querySelector('meta[name=viewport]')
+      var scale = 1 / window.devicePixelRatio
+      viewport.setAttribute(
+        'content',
+        'width=device-width,initial-scale=' + scale
+      )
+      // 让盒子再变大
+      var fontSize = parseInt(document.documentElement.style.fontSize)
+      document.documentElement.style.fontSize =
+        fontSize * window.devicePixelRatio + 'px'
+    </script>
+  </body>
+</html>

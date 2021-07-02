@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 3.45rem;
+        height: 1.5rem;
+        background-color: skyblue;
+        margin: 0.15rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      function fn() {
+        // 1.计算根标签字体大小:
+        document.documentElement.style.fontSize =
+          (document.documentElement.clientWidth * 100) / 375 + 'px'
+      }
+      fn()
+      //window.onsize 可以监听到视口的变化
+      window.onresize = fn
+    </script>
+  </body>
+</html>

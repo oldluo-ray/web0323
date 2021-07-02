@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 注意: 默认布局视口是980. 布局视口多大,布局时,占满屏幕就应该是多大.但是现在会针对移动端,设计UI界面,但是设计的UI界面,一般以ip6为准. 设计稿的宽度375/750. 这时如果直接按照设计稿的尺寸写css样式,效果没有. 所以希望我们的布局视口的宽度,和设计稿的宽度是一一致的. 这时就可以通过meta[name="viewport"]这个标签,开启理想视口,开启理想视口之后,布局视口的宽度,就会被修改. 开启理想视口,当前设备的布局视口,就会变成当前设备的独立像素的宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin:0;
+        }
+        .box {
+            /* height:100px;
+            background-color: red; */
+            /* width: 750px;
+             */
+             /* width: 100%; */
+             width: 345px;
+             height: 150px;
+             margin: 15px;
+             background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // 获取手机的布局视口: 
+        console.log(document.documentElement.clientWidth);
+        // 只有布局视口会影响布局
+
+        // 获取手机视觉视口:
+        // 用户看到的区域, 跟缩放有关,默认也是980. 一般在移动端,会禁止用户缩放,视觉视口很多设备或浏览器也无法获取到.所以视觉视口了解即可
+        // 记住:视觉视口不影响布局
+        // console.log(window.innerWidth);
+    </script>
+</body>
+</html>
